@@ -1,348 +1,206 @@
-/* =========================================================
-   COLOR SYSTEM (LIGHT DEFAULT)
-   ========================================================= */
-:root {
-  --bg: #f4f6f9;
-  --text: #111827;
-
-  --header-bg: #1f2937;
-  --header-text: #f9fafb;
-
-  --nav-bg: #111827;
-  --nav-text: #f9fafb;
-  --nav-border: #374151;
-
-  --accent: #2563eb;
-  --accent-dark: #1e40af;
-
-  --card-bg: #ffffff;
-  --card-text: #111827;
-
-  --tile-bg: #e5e7eb;
-  --pill-bg: #e5e7eb;
-
-  --muted-text: #6b7280;
-
-  --footer-bg: #1f2937;
-  --footer-text: #9ca3af;
-
-  --shadow-soft: 0 4px 6px rgba(0,0,0,0.1);
-  --shadow-soft-hover: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-/* =========================================================
-   DARK MODE (FOLLOWS SYSTEM)
-   ========================================================= */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-
-    --bg: #020617;
-    --text: #e5e7eb;
-
-    --header-bg: #020617;
-    --header-text: #e5e7eb;
-
-    --nav-bg: #020617;
-    --nav-text: #e5e7eb;
-    --nav-border: #1f2937;
-
-    --accent: #3b82f6;
-    --accent-dark: #2563eb;
-
-    --card-bg: #0b1120;
-    --card-text: #e5e7eb;
-
-    --tile-bg: #111827;
-    --pill-bg: #111827;
-
-    --muted-text: #9ca3af;
-
-    --footer-bg: #020617;
-    --footer-text: #6b7280;
-
-    --shadow-soft: 0 6px 14px rgba(0,0,0,0.6);
-    --shadow-soft-hover: 0 10px 26px rgba(0,0,0,0.8);
-  }
-}
-
-/* =========================================================
-   GLOBAL RESET
-   ========================================================= */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* === Base Styles === */
 body {
+  font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  padding: 0;
+  background: #0d1117;
+  color: #e6edf3;
   line-height: 1.6;
 }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+h1, h2, h3, h4, h5 {
+  color: #58a6ff;
+  margin-top: 0;
+}
+
+a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 header {
-  background: var(--header-bg);
-  color: var(--header-text);
   text-align: center;
   padding: 2rem 1rem;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
 }
 
 header h2 {
-  margin: 0.5rem auto 0;
-  font-weight: 400;
-  max-width: 750px;
+  font-size: 1rem;
+  color: #8b949e;
 }
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+/* === Navigation === */
 nav {
-  background: var(--nav-bg);
-  border-bottom: 1px solid var(--nav-border);
-  padding: 0.5rem 1rem;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
 }
 
 nav ul {
-  list-style: none;
   display: flex;
   justify-content: center;
-  gap: 1.4rem;
+  list-style: none;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
 
-nav ul li a {
-  color: var(--nav-text);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
+nav li {
+  margin: 0.5rem 1rem;
 }
 
-nav ul li a:hover {
-  color: var(--accent);
+nav a {
+  color: #e6edf3;
+  font-weight: 500;
 }
 
+nav a:hover {
+  color: #58a6ff;
+}
+
+/* Mobile toggle */
 .menu-toggle {
   display: none;
-}
-
-/* =========================================================
-   MAIN LAYOUT
-   ========================================================= */
-main {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1rem 2rem;
-}
-
-section {
-  padding: 2rem 0;
-}
-
-section h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid var(--accent);
-  display: inline-block;
-  padding-bottom: 0.3rem;
-}
-
-/* =========================================================
-   CARDS
-   ========================================================= */
-.card {
-  background: var(--card-bg);
-  color: var(--card-text);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-soft-hover);
-}
-
-.card h4 {
-  margin-top: 0;
-  color: var(--accent);
-}
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
-.button {
-  display: inline-block;
-  margin-top: 1rem;
-  background: var(--accent);
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.25s ease;
-}
-
-.button:hover {
-  background: var(--accent-dark);
-}
-
-.button-row {
-  margin-top: 1.2rem;
-}
-
-/* =========================================================
-   TILES / SKILLS
-   ========================================================= */
-.tile {
-  background: var(--tile-bg);
-  padding: 0.7rem 1.1rem;
-  border-radius: 6px;
-  display: inline-block;
-  margin: 0.35rem;
-  font-weight: 600;
-}
-
-.skills {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.skills li {
-  background: var(--pill-bg);
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  font-size: 0.9rem;
-}
-
-/* =========================================================
-   CENTERED VIDEO + PDF EMBEDS
-   ========================================================= */
-.video-embed,
-.pdf-frame {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Video */
-.video-embed {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  padding-top: 56.25%;
-  margin-top: 1rem;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
-}
-
-.video-embed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* PDFs */
-.pdf-frame {
-  width: 100%;
-  height: 80vh;          /* scales with window height */
-  min-height: 500px;    /* prevents being too small */
-  border: none;
-  border-radius: 8px;
-  margin-top: 1rem;
-  box-shadow: var(--shadow-soft);
-  background: var(--card-bg);
-}
-
-/* =========================================================
-   TESTIMONIAL
-   ========================================================= */
-.testimonial-card {
-  border-left: 4px solid var(--accent);
-}
-
-.testimonial-quote {
-  font-style: italic;
-}
-
-.testimonial-meta {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.testimonial-link {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-footer {
-  background: var(--footer-bg);
-  color: var(--footer-text);
+  background: #21262d;
+  padding: 0.75rem;
   text-align: center;
-  padding: 1rem;
-  font-size: 0.85rem;
+  cursor: pointer;
+  border-bottom: 1px solid #30363d;
 }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   nav ul {
-    flex-direction: column;
-    align-items: flex-start;
     display: none;
+    flex-direction: column;
+    align-items: center;
   }
 
   nav ul.show {
     display: flex;
   }
-
-  .menu-toggle {
-    display: block;
-    color: var(--nav-text);
-    cursor: pointer;
-    font-weight: bold;
-  }
 }
 
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 1.7rem;
-  }
+/* === Sections & Cards === */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
 
-  header h2 {
-    font-size: 0.9rem;
-  }
+section {
+  margin-bottom: 2.5rem;
+}
 
-  .card {
-    padding: 1.2rem;
-  }
+.card {
+  background: #161b22;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  margin-top: 1rem;
+}
+
+.tile {
+  display: inline-block;
+  background: #21262d;
+  color: #c9d1d9;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin: 0.4rem;
+  font-size: 0.95rem;
+}
+
+/* === Buttons === */
+.button-row {
+  margin-top: 1rem;
+}
+
+.button {
+  display: inline-block;
+  background: #238636;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: #2ea043;
+}
+
+/* === Skills List === */
+.skills {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.75rem;
+}
+
+.skills li {
+  background: #21262d;
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* === Testimonials === */
+.testimonial-card {
+  background: #161b22;
+  border-left: 4px solid #58a6ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.testimonial-quote {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonial-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.testimonial-name {
+  font-weight: bold;
+}
+
+.testimonial-title {
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+/* === Video Embed === */
+.video-embed iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/* === Footer === */
+footer {
+  background: #161b22;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #30363d;
+  color: #8b949e;
+  font-size: 0.9rem;
 }
